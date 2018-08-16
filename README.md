@@ -1,25 +1,37 @@
 # RocketMQ Sample
-rocketmq-docker-sample for 4.2.0 version
+docker-rocketMQ for 4.2.0 version
 
-+ rocketmq-namesrv: RocketMQ Name Server
-+ rocketmq-broker-a-m: RocketMQ Broker
-+ rocketmq-console: UI for visualization Pub & Sub
++ namesrv: RocketMQ Name Server
++ broker-m: RocketMQ Broker
 
 ### Usage:
 
-#### RocketMQ Console
-```
-$ cd rocketmq-console
-$ mvn clean package
-```
-
-#### docker-compose:
+#### single launching rocketMQ:
 ```
 docker-compose up -d
 ```
 
-#### RocketMQ Console
-http://localhost:8080
+### Multiline Point Settings
+#### Master Environment
+```
+#Broker master
+NAMESRV_ADDR: "master:9876"
+PROPERTIES_FILE: "2m-2s-async/broker-a.properties"
+brokerIP1: "master"
+brokerName: "broker-a"
+brokerId: "0"
+brokerClusterName: "name"
+```
+#### Slave Environment
+```
+#Broker Slave
+NAMESRV_ADDR: "slave:9876"
+PROPERTIES_FILE: "2m-2s-async/broker-a-s.properties"
+brokerIP1: "slave"
+brokerName: "broker-a"
+brokerId: "1"
+brokerClusterName: "name"
+```
 
 ### Reference
 [RockerMQ Docker - Github](https://github.com/leechedan/docker-rocketmq)
