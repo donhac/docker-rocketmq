@@ -5,7 +5,7 @@ services:
     build: ./base
 
   namesrv:
-    image: rocketmq-namesrv-image:4.2.0
+    image: rocketmq-namesrv:4.2.0
     privileged: true
     build:
       context: ./namesrv
@@ -18,7 +18,7 @@ services:
         - ./store/nm-store/:/opt/store
 
   broker-m:
-    image: rocketmq-broker-image:4.2.0
+    image: rocketmq-broker:4.2.0
     privileged: true
     build:
       context: ./broker
